@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米SU7 - 科技赋能出行</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#00C66C',
+                        dark: '#1E1E1E',
+                        light: '#F5F5F5',
+                        accent: '#FF5C5C'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            .animate-pulse-slow {
+                animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            .backdrop-blur {
+                backdrop-filter: blur(8px);
+            }
+            .job-card-hover {
+                transition: all 0.3s ease;
+            }
+            .job-card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .career-section {
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-dark antialiased">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center">
+                <span class="text-2xl font-bold text-white text-shadow-lg">XIAOMI<span class="text-primary">AUTO</span></span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-white hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="text-white hover:text-primary transition-colors">关于SU7</a>
+                <a href="#features" class="text-white hover:text-primary transition-colors">核心性能</a>
+                <a href="#gallery" class="text-white hover:text-primary transition-colors">外观内饰</a>
+                <a href="#technology" class="text-white hover:text-primary transition-colors">前沿科技</a>
+                <a href="#service" class="text-white hover:text-primary transition-colors">售后服务</a>
+                <a href="#careers" class="text-white hover:text-primary transition-colors">招贤纳士</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="hidden md:block px-6 py-2 bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-lg hover:shadow-primary/30">
+                    预约试驾
+                </button>
+                <button class="md:hidden text-white text-2xl" id="menu-toggle">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark/90 backdrop-blur">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-primary transition-colors py-2">首页</a>
+                <a href="#about" class="text-white hover:text-primary transition-colors py-2">关于SU7</a>
+                <a href="#features" class="text-white hover:text-primary transition-colors py-2">核心性能</a>
+                <a href="#gallery" class="text-white hover:text-primary transition-colors py-2">外观内饰</a>
+                <a href="#technology" class="text-white hover:text-primary transition-colors py-2">前沿科技</a>
+                <a href="#service" class="text-white hover:text-primary transition-colors py-2">售后服务</a>
+                <a href="#careers" class="text-white hover:text-primary transition-colors py-2">招贤纳士</a>
+                <button class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-lg hover:shadow-primary/30">
+                    预约试驾
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/81c1f5ece79942a8adeea18a48545019~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751175706&x-signature=b6dGFL%2BJ0T%2BduC4wsy0Zch6%2B62Y%3D" alt="小米SU7" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark/80 to-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center md:text-left">
+            <div class="max-w-3xl mx-auto md:mx-0">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight text-shadow-lg mb-4">
+                    小米SU7<br>智能电动旗舰
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-xl">
+                    融合小米生态科技，重新定义智能出行体验。极致性能、智能驾驶与生态互联的完美结合。
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                    <button class="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-lg hover:shadow-primary/30 hover:scale-105">
+                        预约试驾
+                    </button>
+                    <button class="px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur text-white border border-white/30 rounded-full transition-all hover:scale-105">
+                        了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#about" class="flex flex-col items-center">
+                <span class="mb-2">向下滚动</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于SU7 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">关于小米SU7</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-dark/70 max-w-3xl mx-auto">
+                    小米SU7是小米汽车首款旗舰智能电动轿车，集极致性能、智能科技与优雅设计于一身。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-bolt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">极致性能</h3>
+                    <p class="text-dark/70">
+                        双电机四驱版本百公里加速仅需2.78秒，CLTC续航高达800公里，带来超跑级驾驶体验。
+                    </p>
+                </div>
+
+                <div class="bg-light rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-microchip text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">智能科技</h3>
+                    <p class="text-dark/70">
+                        搭载Xiaomi Pilot智能驾驶系统与MIUI For Car，实现全场景智能交互与自动驾驶辅助。
+                    </p>
+                </div>
+
+                <div class="bg-light rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-paint-brush text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">优雅设计</h3>
+                    <p class="text-dark/70">
+                        采用"流体科技美学"设计语言，风阻系数低至0.21Cd，兼具动感与优雅。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-dark rounded-2xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-white mb-4">SU7 性能版参数</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white/80">最大功率</span>
+                                    <span class="text-white font-semibold">1073马力</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white/80">百公里加速</span>
+                                    <span class="text-white font-semibold">2.78秒</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white/80">CLTC续航</span>
+                                    <span class="text-white font-semibold">800公里</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white/80">最高时速</span>
+                                    <span class="text-white font-semibold">265公里/小时</span>
+                                </div>
+                                <div class="w-full bg-white/10 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-64 md:h-auto">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1d7d8fe1e5b347c08574a45c181ee344~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751175769&x-signature=GnZr59l6zkxmZ8julgZfQm1JPkM%3D" alt="小米SU7性能版" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心性能 -->
+    <section id="features" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">核心性能</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-dark/70 max-w-3xl mx-auto">
+                    小米SU7搭载一系列前沿技术，为您带来前所未有的驾驶体验。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-6">三电系统技术突破</h3>
+                    <p class="text-dark/70 mb-6">
+                        小米SU7采用自研高压平台，搭配新一代CTP麒麟电池，实现了能量密度与安全性的双重突破。支持超级快充技术，10分钟可补充300公里续航。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">高效能电机</h4>
+                                <p class="text-dark/70">前后双电机布局，综合效率达97%，动力输出响应速度提升30%。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">智能热管理</h4>
+                                <p class="text-dark/70">全时动态电池温控系统，在-30°C至55°C环境下均能保持最佳性能。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">电池安全保障</h4>
+                                <p class="text-dark/70">七重电池安全防护系统，通过针刺、挤压、过充等极限测试。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/97d7b957b1ae48a0877f9c93b664c39b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176199&x-signature=UAlSgZ%2BWRLTcTZ6nl58TBF%2FBbSU%3D" alt="小米SU7三电系统" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-40 h-40 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-12">性能对比</h3>
+                <div class="bg-white rounded-xl shadow-xl p-6 md:p-8">
+                    <canvas id="performanceChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 外观内饰 -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">外观内饰</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-dark/70 max-w-3xl mx-auto">
+                    小米SU7采用"流体科技美学"设计语言，将科技感与优雅完美融合。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/da426964f4574a61a49898171fc85bbd~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176050&x-signature=0O304dCJ5ymAaQ5ouEU26jK6%2Ft4%3D" alt="小米SU7外观" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">流体科技美学</h3>
+                            <p class="text-white/80">风阻系数仅0.21Cd，兼具动感线条与空气动力学优化。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/49ecc54b2be6431e8f820f43c785775b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176083&x-signature=2zd7e9nmRyBTNz%2B1az%2B3a4TMMso%3D" alt="小米SU7内饰" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">极简智能座舱</h3>
+                            <p class="text-white/80">15.6英寸悬浮中控屏，搭配AR-HUD，打造沉浸式交互体验。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9643d8874c6243bfb609af576d746890~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751175822&x-signature=Auw%2B6CtdGfBJlm4w9UGU2%2BuDCDA%3D" alt="小米SU7前脸" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-semibold">未来之眼智能大灯</h4>
+                        <p class="text-dark/70 text-sm">支持智能交互灯语，自动适应多种路况照明需求。</p>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2f42061b47a6448bad1fba7121710036~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751175860&x-signature=0CKJ%2FGK3le%2FfqCeqKDyII3iqkwQ%3D" alt="小米SU7侧面" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-semibold">优雅溜背造型</h4>
+                        <p class="text-dark/70 text-sm">轿跑风格设计，完美平衡空气动力学与美学需求。</p>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/33481c3df4cd407eb97c64f7d6506cb9~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751175895&x-signature=H%2Fw55dtqv0iqCs4oPnGwnKld6Co%3D" alt="小米SU7轮毂" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-semibold">空气动力学轮毂</h4>
+                        <p class="text-dark/70 text-sm">低风阻设计，搭配高性能轮胎，提供卓越抓地力。</p>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/32f7f5d2f9194c6aa1c7bb8b99904778~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751175964&x-signature=nsO0CD8x7A9fb5BTdISsj%2FOIg1M%3D" alt="小米SU7尾灯" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-semibold">贯穿式星环尾灯</h4>
+                        <p class="text-dark/70 text-sm">独特光效设计，点亮后呈现科技感十足的星环效果。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <button class="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-lg hover:shadow-primary/30 hover:scale-105">
+                    查看更多图片
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 前沿科技 -->
+    <section id="technology" class="py-20 bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold mb-4">前沿科技</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-white/70 max-w-3xl mx-auto">
+                    小米SU7搭载一系列自研智能科技，为您带来全方位的智能出行体验。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="relative">
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0dcba44d00904afda5bddebe14f133a1~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176294&x-signature=l3XYe0Ly5X3Q2kaGAvRobsaDbdE%3D" alt="Xiaomi Pilot智能驾驶系统" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Xiaomi Pilot智能驾驶</h3>
+                    <p class="text-white/70 mb-6">
+                        小米SU7搭载自研Xiaomi Pilot智能驾驶系统，配备激光雷达、高清摄像头、毫米波雷达等多传感器融合方案，支持高速领航辅助、城市道路自动驾驶等功能。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">全场景感知</h4>
+                                <p class="text-white/70">11个摄像头+3个毫米波雷达+1个激光雷达，360°全方位感知路况。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">深度神经网络</h4>
+                                <p class="text-white/70">搭载自研神经网络芯片，每秒可处理200亿次运算，实时分析复杂路况。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">持续进化</h4>
+                                <p class="text-white/70">通过OTA持续更新，不断提升自动驾驶能力，适应更多复杂场景。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">MIUI For Car智能座舱</h3>
+                    <p class="text-white/70 mb-6">
+                        小米SU7搭载专为汽车深度定制的MIUI For Car系统，实现手机、平板、车机无缝互联，带来前所未有的智能交互体验。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">超大中控屏</h4>
+                                <p class="text-white/70">15.6英寸2.5K分辨率悬浮中控屏，支持多点触控与语音交互。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">生态无缝互联</h4>
+                                <p class="text-white/70">与小米手机、平板、智能家居深度联动，上车继续未完成的任务。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-primary">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">智能语音助手</h4>
+                                <p class="text-white/70">全场景语音交互，支持多指令连续识别，响应速度小于0.5秒。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bd6f3863ef584733a5bcdce32266dfe6~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176343&x-signature=r1sW1G7WvyAr9Z1ziT7jE89ZGTk%3D" alt="MIUI For Car智能座舱" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 售后服务 -->
+    <section id="service" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">售后服务</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-dark/70 max-w-3xl mx-auto">
+                    小米汽车为您提供全方位的售后保障，让您的每一次出行都无忧无虑。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-map-marker text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">全国服务网络</h3>
+                    <p class="text-dark/70">
+                        小米汽车已在全国200+城市建立服务中心，覆盖95%以上用户，为您提供便捷的维修保养服务。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-clock-o text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">7×24小时服务</h3>
+                    <p class="text-dark/70">
+                        全天候道路救援服务，无论何时何地，我们都将第一时间响应您的需求。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-bolt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">充电网络</h3>
+                    <p class="text-dark/70">
+                        小米超充站已覆盖全国主要城市，支持最大功率300kW超级快充，10分钟补充300公里续航。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white rounded-2xl overflow-hidden shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-2xl font-bold mb-6">预约试驾</h3>
+                        <p class="text-dark/70 mb-8">
+                            立即预约小米SU7试驾，亲身感受智能电动旗舰的魅力。我们的专业顾问将为您提供一对一服务。
+                        </p>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-dark/70 mb-1">姓名</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的姓名">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-dark/70 mb-1">手机号码</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的手机号码">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="city" class="block text-sm font-medium text-dark/70 mb-1">城市</label>
+                                <select id="city" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                                    <option value="">请选择城市</option>
+                                    <option value="beijing">北京</option>
+                                    <option value="shanghai">上海</option>
+                                    <option value="guangzhou">广州</option>
+                                    <option value="shenzhen">深圳</option>
+                                    <option value="hangzhou">杭州</option>
+                                    <!-- 更多城市选项 -->
+                                </select>
+                            </div>
+                            <div>
+                                <label for="time" class="block text-sm font-medium text-dark/70 mb-1">预约时间</label>
+                                <input type="datetime-local" id="time" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-dark/70 mb-1">留言</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="如有其他需求，请在此留言"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg transition-all shadow-lg hover:shadow-primary/30">
+                                提交预约
+                            </button>
+                        </form>
+                    </div>
+                    <div class="relative h-64 md:h-auto">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/12c7e413c0374e588f3b6d5d70f878c4~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176491&x-signature=SVLV%2BWgTXIF0A1f%2FlhH3jBqa5ps%3D" alt="小米SU7试驾" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招贤纳士 -->
+    <section id="careers" class="py-20 career-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">招贤纳士</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-lg text-dark/70 max-w-3xl mx-auto">
+                    加入小米汽车，一起定义智能出行的未来
+                </p>
+            </div>
+
+            <div class="text-center mb-16">
+                <h3 class="text-2xl font-bold mb-6">人才理念</h3>
+                <p class="text-xl text-dark/80 max-w-2xl mx-auto">
+                    我们相信科技的力量源自人才的创新，小米汽车以开放、包容的态度，欢迎每一位热爱汽车与科技的伙伴加入，共同推动智能出行的变革。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white rounded-xl p-8 shadow-lg job-card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-rocket text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">创新驱动</h3>
+                    <p class="text-dark/70 text-center">
+                        鼓励每一个创新想法，提供资源支持落地，让科技突破成为日常工作的一部分。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg job-card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-users text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">团队协作</h3>
+                    <p class="text-dark/70 text-center">
+                        跨部门协作的扁平化团队，打破层级壁垒，让每一个声音都能被听见。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg job-card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-line-chart text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-4">持续成长</h3>
+                    <p class="text-dark/70 text-center">
+                        完善的培训体系与晋升通道，帮助每一位员工在专业领域持续提升，实现职业目标。
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-center mb-12">热招岗位</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg job-card-hover">
+                        <div class="bg-primary text-white p-6">
+                            <h4 class="text-xl font-semibold">智能驾驶算法工程师</h4>
+                            <p class="text-white/80">北京 · 研发中心</p>
+                        </div>
+                        <div class="p-6">
+                            <h5 class="font-semibold mb-3 text-dark">岗位职责：</h5>
+                            <ul class="text-dark/70 space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>负责自动驾驶感知、规划、控制算法的研发与优化</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>参与多传感器融合方案的设计与实现</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>与硬件团队协作，完成算法在车载平台的部署</span>
+                                </li>
+                            </ul>
+                            <h5 class="font-semibold mb-3 text-dark">任职要求：</h5>
+                            <ul class="text-dark/70 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>计算机、自动化等相关专业硕士及以上学历</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>精通C++/Python，熟悉深度学习框架</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>有自动驾驶相关项目经验者优先</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-6 border-t border-gray-100 text-center">
+                            <button class="px-6 py-2 bg-primary hover:bg-primary/90 text-white rounded-full transition-colors">
+                                申请职位
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg job-card-hover">
+                        <div class="bg-primary text-white p-6">
+                            <h4 class="text-xl font-semibold">电池系统工程师</h4>
+                            <p class="text-white/80">上海 · 研发中心</p>
+                        </div>
+                        <div class="p-6">
+                            <h5 class="font-semibold mb-3 text-dark">岗位职责：</h5>
+                            <ul class="text-dark/70 space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>负责动力电池系统的设计与开发</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>主导电池热管理系统的方案制定与优化</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>参与电池安全性能测试与分析</span>
+                                </li>
+                            </ul>
+                            <h5 class="font-semibold mb-3 text-dark">任职要求：</h5>
+                            <ul class="text-dark/70 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>电化学、材料学等相关专业本科及以上学历</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>熟悉动力电池工作原理及设计流程</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>有新能源汽车电池开发经验者优先</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-6 border-t border-gray-100 text-center">
+                            <button class="px-6 py-2 bg-primary hover:bg-primary/90 text-white rounded-full transition-colors">
+                                申请职位
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg job-card-hover">
+                        <div class="bg-primary text-white p-6">
+                            <h4 class="text-xl font-semibold">车机交互设计师</h4>
+                            <p class="text-white/80">深圳 · 研发中心</p>
+                        </div>
+                        <div class="p-6">
+                            <h5 class="font-semibold mb-3 text-dark">岗位职责：</h5>
+                            <ul class="text-dark/70 space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>负责MIUI For Car系统的交互流程设计</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>主导用户体验研究，优化交互逻辑</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>与开发团队协作，确保设计方案的落地</span>
+                                </li>
+                            </ul>
+                            <h5 class="font-semibold mb-3 text-dark">任职要求：</h5>
+                            <ul class="text-dark/70 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>工业设计、交互设计等相关专业本科及以上学历</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>精通Figma等设计工具，有车机设计经验</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>有完整的车载交互设计项目经验者优先</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-6 border-t border-gray-100 text-center">
+                            <button class="px-6 py-2 bg-primary hover:bg-primary/90 text-white rounded-full transition-colors">
+                                申请职位
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg job-card-hover">
+                        <div class="bg-primary text-white p-6">
+                            <h4 class="text-xl font-semibold">充电网络规划工程师</h4>
+                            <p class="text-white/80">广州 · 运营中心</p>
+                        </div>
+                        <div class="p-6">
+                            <h5 class="font-semibold mb-3 text-dark">岗位职责：</h5>
+                            <ul class="text-dark/70 space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>负责全国充电网络的规划与布局设计</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>分析用户充电需求，制定站点建设方案</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>与合作伙伴协作，推进充电网络建设</span>
+                                </li>
+                            </ul>
+                            <h5 class="font-semibold mb-3 text-dark">任职要求：</h5>
+                            <ul class="text-dark/70 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>电气工程、能源管理等相关专业本科及以上学历</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>熟悉充电基础设施技术标准与建设流程</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                    <span>有充电网络规划经验者优先</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-6 border-t border-gray-100 text-center">
+                            <button class="px-6 py-2 bg-primary hover:bg-primary/90 text-white rounded-full transition-colors">
+                                申请职位
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-dark rounded-2xl overflow-hidden shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-white mb-6">员工福利</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-primary">
+                                    <i class="fa fa-money text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">具有竞争力的薪酬</h4>
+                                    <p class="text-white/70">
+                                        行业领先的薪资水平，年度奖金，项目分红，股权激励计划。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-primary">
+                                    <i class="fa fa-heartbeat text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">完善的健康保障</h4>
+                                    <p class="text-white/70">
+                                        六险一金，年度体检，补充商业保险，员工健康管理计划。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-primary">
+                                    <i class="fa fa-laptop text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">小米生态福利</h4>
+                                    <p class="text-white/70">
+                                        小米全系产品员工折扣，新品优先体验，生态链企业合作福利。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-primary">
+                                    <i class="fa fa-plane text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-2">丰富的假期政策</h4>
+                                    <p class="text-white/70">
+                                        带薪年假，带薪病假，弹性工作制度，节日福利与礼品。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-64 md:h-auto">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3517d688814b41b9942a587366a3d670~tplv-a9rns2rl98-image.image?rk3s=8e244e95&rrcfp=e75484ac&x-expires=1751176577&x-signature=WqQN7c%2F9U%2F%2F0m4g%2F4bY%2F97G4gXQ%3D" alt="小米汽车团队" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <p class="text-lg text-dark/70 mb-8">
+                    更多职位请发送简历至 <span class="text-primary font-semibold">careers@xiaomiauto.com</span>，邮件主题请注明"应聘岗位+姓名"
+                </p>
+                <button class="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full transition-all shadow-lg hover:shadow-primary/30 hover:scale-105">
+                    查看全部职位
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">小米汽车</h3>
+                    <p class="text-white/70 mb-6">
+                        小米汽车致力于用科技重塑出行体验，推动汽车产业智能化变革。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                            <i class="fa fa-wechat text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">产品中心</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">小米SU7</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">小米SU7 Pro</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">小米SU7 Max</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">未来车型</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">用户服务</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">预约试驾</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">服务中心</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">充电网络</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">关于我们</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">公司简介</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">新闻动态</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">招贤纳士</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-primary transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-white/50 text-sm mb-4 md:mb-0">
+                        © 2025 小米汽车科技有限公司. 保留所有权利.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-white/50 hover:text-primary text-sm transition-colors">隐私政策</a>
+                        <a href="#" class="text-white/50 hover:text-primary text-sm transition-colors">使用条款</a>
+                        <a href="#" class="text-white/50 hover:text-primary text-sm transition-colors">法律声明</a>
+                        <a href="#" class="text-white/50 hover:text-primary text-sm transition-colors">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all transform translate-y-20 opacity-0">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-dark/90', 'backdrop-blur', 'shadow-lg');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+                
+                backToTop.classList.remove('translate-y-20', 'opacity-0');
+                backToTop.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                navbar.classList.remove('bg-dark/90', 'backdrop-blur', 'shadow-lg');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+                
+                backToTop.classList.add('translate-y-20', 'opacity-0');
+                backToTop.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
+
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            if (menuToggle.innerHTML.includes('fa-bars')) {
+                menuToggle.innerHTML = '<i class="fa fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 回到顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 性能对比图表
+        const ctx = document.getElementById('performanceChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['百公里加速(秒)', 'CLTC续航(km)', '最大功率(马力)', '风阻系数', '智能驾驶等级', '快充速度(km/10min)'],
+                    datasets: [
+                        {
+                            label: '小米SU7性能版',
+                            data: [2.78, 800, 1073, 0.21, 4, 300],
+                            backgroundColor: 'rgba(22, 93, 255, 0.2)',
+                            borderColor: 'rgba(22, 93, 255, 1)',
+                            pointBackgroundColor: 'rgba(22, 93, 255, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(22, 93, 255, 1)'
+                        },
+                        {
+                            label: '同级竞品A',
+                            data: [3.2, 750, 980, 0.23, 3, 250],
+                            backgroundColor: 'rgba(0, 198, 108, 0.2)',
+                            borderColor: 'rgba(0, 198, 108, 1)',
+                            pointBackgroundColor: 'rgba(0, 198, 108, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(0, 198, 108, 1)'
+                        },
+                        {
+                            label: '同级竞品B',
+                            data: [3.5, 700, 920, 0.25, 3, 220],
+                            backgroundColor: 'rgba(255, 92, 92, 0.2)',
+                            borderColor: 'rgba(255, 92, 92, 1)',
+                            pointBackgroundColor: 'rgba(255, 92, 92, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(255, 92, 92, 1)'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 5
+                        }
+                    }
+                }
+            });
